@@ -1,0 +1,6 @@
+# virtualenv
+venv/
+
+logs/
+
+__pyacache__/

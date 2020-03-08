@@ -41,6 +41,9 @@ def create_app(config_class=Config):
     from app.users import bp as users_bp
     app.register_blueprint(users_bp)
 
+    from app.errors import bp as errors_bp
+    app.register_blueprint(errors_bp)
+
 
     # Logging to a file
     if app.config['LOG_TO_STDOUT']:

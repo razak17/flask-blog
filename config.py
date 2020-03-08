@@ -11,8 +11,6 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
-
     POSTS_PER_PAGE = 5
 
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
@@ -21,3 +19,5 @@ class Config(object):
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['r17.abdul@gmail.com']
+
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')

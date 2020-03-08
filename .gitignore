@@ -6,3 +6,7 @@ logs/
 __pyacache__/
 
 app.db
+
+.env
+
+.flaskenv

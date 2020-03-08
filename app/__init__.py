@@ -35,6 +35,12 @@ def create_app(config_class=Config):
     from app.main import bp as main_bp
     app.register_blueprint(main_bp)
 
+    from app.posts import bp as posts_bp
+    app.register_blueprint(posts_bp)
+
+    from app.users import bp as users_bp
+    app.register_blueprint(users_bp)
+
 
     # Logging to a file
     if app.config['LOG_TO_STDOUT']:

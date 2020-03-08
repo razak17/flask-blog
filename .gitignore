@@ -3,10 +3,17 @@ venv/
 
 logs/
 
-__pyacache__/
+__pyacache__
+app/__pyacache__
 
 app.db
 
+<<<<<<< HEAD
 .env
 
 .flaskenv
+=======
+.flaskenv
+
+.env
+>>>>>>> deploy

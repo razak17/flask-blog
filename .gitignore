@@ -8,12 +8,4 @@ app/__pyacache__
 
 app.db
 
-<<<<<<< HEAD
 .env
-
-.flaskenv
-=======
-.flaskenv
-
-.env
->>>>>>> deploy

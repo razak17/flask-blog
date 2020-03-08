@@ -1,13 +1,11 @@
 from flask import Flask, request, render_template, flash, redirect, url_for, current_app, abort
 from app.main.forms import UpdateAccountForm, PostForm
 from flask_login import login_required, current_user
+from app.main.save_picture import save_picture
 from app.models import User, Post
 from config import Config
 from app.main import bp
-from PIL import Image
 from app import db
-import secrets
-import os
 
 
 
@@ -24,19 +22,6 @@ def index():
 @bp.route("/about")
 def about():
     return render_template("main/about.html", title="About")
-
-def save_picture(form_picture):
-    random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.filename)
-    picture_fn = random_hex + f_ext
-    picture_path = os.path.join(current_app.root_path, 'static/profile_pics', picture_fn)
-
-    output_size = (125, 125)
-    i = Image.open(form_picture)
-    i.thumbnail(output_size)
-    i.save(picture_path)
-
-    return picture_fn
 
 
 @bp.route("/account", methods=["GET", "POST"])
@@ -95,8 +80,7 @@ def update_post(post_id):
     elif request.method == 'GET':
         form.title.data = post.title
         form.content.data = post.content
-    return render_template('main/create_post.html', title='Update Post',
-                           form=form, legend='Update Post')
+    return render_template('main/create_post.html', title='Update Post', form=form, legend='Update Post')
 
 
 @bp.route("/post/<int:post_id>/delete", methods=['POST'])

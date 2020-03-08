@@ -1,9 +1,15 @@
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, EqualTo, Email, ValidationError
 from flask_login import current_user
 from flask_wtf.file import FileField, FileAllowed
 from flask_wtf import FlaskForm
 from app.models import User
+
+
+class PostForm(FlaskForm):
+    title = StringField("Title", validators=[DataRequired()])
+    content = TextAreaField("Content", validators=[DataRequired()])
+    submit = SubmitField('Post')
 
 
 class UpdateAccountForm(FlaskForm):

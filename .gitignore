@@ -8,6 +8,5 @@ app/__pyacache__
 
 app.db
 
-.flaskenv
 
 .env
